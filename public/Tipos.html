@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Peliculas App - Tipo</title>
+		<link rel="stylesheet" href="stylesheet/styles.css">
+	</head>
+	<body>
+		<h1>Tipos</h1>
+		 <form id="TipoForm" name="TipoForm">
+			<input type="hidden" id="TipoId">
+			<label for="nombre">Nombre:</label>
+			<input type="text" id="nombre" required>
+			<label for="descripcion">Descripción:</label>
+			<input type="text" id="descripcion" required>
+			<button type="submit">Guardar</button> <button type="button" id="cancelEdit" style="display: none;">Cancelar</button>
+		</form>
+		 <input type="text" id="search" placeholder="Buscar por nombre...">
+		 <ul id="itemList"></ul>
+		 <script src="TipoApp.js"></script>
+	</body>
+</html>
