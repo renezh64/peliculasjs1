@@ -13,10 +13,7 @@ router.get('/', async(req, res, next)=> {
     await getConnection(); 
 		const mTipo = await Tipo.find();
     res.json(mTipo);
-    /*const mTipo=await Tipo.find().then(foundPost=>{
-      res.json(mTipo);
-    });*/
-		closeConn();
+    closeConn();
 	}
 	catch(error)
 	{
