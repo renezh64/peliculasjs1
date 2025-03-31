@@ -1,11 +1,11 @@
-PUT  http://localhost:3001/productora/add
+POST  http://localhost:3001/productora/67eae7647ad99f42281d3934
 Content-Type: application/json
-
 {
-  "NombresPro": "Produciones RCNJEs",
-  "Estado": "Inactivo",
-  "FechaCre":"2025-03-20",
-  "FechaAct": "2025-03-20",
-  "Eslogan":"hoy aqui mañana desde cualquier lugar del mundo",
-  "Descripcion": "Julito no me "
+ "Descripcion": "lo intentamos hacer bien",
+"Eslogan": "la hacemos bien354898465",
+"Estado": "Inactivo",
+"FechaAct": "2025-03-31",
+"FechaCre": "2025-03-24",
+"NombrePro": "Caracol tv",
+"_id": "67eae7647ad99f42281d3934"
 }

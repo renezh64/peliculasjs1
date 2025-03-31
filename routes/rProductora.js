@@ -24,12 +24,12 @@ router.get("/:id", async(req, res, next)=>
 {
 	try
 	{
-    await getConnection(); 
+		await getConnection(); 
 		const miProductora = await Productora.findById(req.params.id);
 		if(!miProductora)
 		{return res.status(404).json({ error: 'Productora no encontrado' });}
 		res.json(miProductora);
-    closeConn();
+		closeConn();
 	}
 	catch (error)
 	{
@@ -58,7 +58,8 @@ router.put('/add', async (req, res) =>
 });
 
 //Actualiza
-router.put('/items/:id', async (req, res) => {
+router.post('/:id', async (req, res) => {
+	
   try 
   {
     await getConnection(); 
@@ -66,7 +67,7 @@ router.put('/items/:id', async (req, res) => {
     if(!miProductora)
 	{ return res.status(404).json({ error: 'Productora no encontrado' }); }
 	res.json(miProductora);
-  closeConn();
+	closeConn();
   }
   catch(error)
   {
