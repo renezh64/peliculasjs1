@@ -45,11 +45,12 @@ router.get("/:id", async(req, res, next)=>
 });
 
 // Crear un nuevo tipo
-router.post('/add', async (req, res) => 
+router.put('/add', async (req, res) => 
 {
   try
   {
     await getConnection();
+	
     const miTipo = new Tipo(req.body);
     await miTipo.save();
     
@@ -58,21 +59,24 @@ router.post('/add', async (req, res) =>
   }
   catch (error)
   {
+	  console.log(req.body);
     res.status(400).json({ error: error.message });
     closeConn();
   }
 });
 
 //Actualiza
-router.put('/items/:id', async (req, res) => {
+router.post('/:id', async (req, res) => {
+	console.log(req.params);
   try 
   {
     await getConnection();
     const miTipo = await Tipo.findByIdAndUpdate(req.params.id, req.body, {new: true, runValidators: true, });
+	
     if(!miTipo)
 	{ return res.status(404).json({ error: 'Tipo no encontrado' }); }
 	res.json(miTipo);
-  closeConn();
+	closeConn();
   }
   catch(error)
   {

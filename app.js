@@ -1,5 +1,6 @@
 var createError = require('http-errors');
 var express = require('express');
+const cors = require('cors');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
@@ -7,10 +8,19 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var tipoRauter= require("./routes/rTipo.js");
+var productoraRouter= require("./routes/rProductora.js");
 
 var app = express();
 
-const port=3000;
+const port=3001;
+const corsOptions = {
+    origin: "*", // Allow only requests from this origin
+	credentials:false,
+    methods: ["GET","HEAD","PUT","PATCH","POST","DELETE"], // Allow only these methods
+    allowedHeaders: ['Content-Type'] // Allow only these headers
+};
+app.use(cors(corsOptions));
+
 app.listen(port,()=>{
 	console.log("correindo en http:localhost:"+port);
 });
@@ -29,6 +39,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 //agregados
 app.use("/tipo",tipoRauter);
+app.use("/productora",productoraRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

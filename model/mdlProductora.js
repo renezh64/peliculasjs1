@@ -1,6 +1,6 @@
-import {Schema, model} from "mongoose";
+const {Schema, model} = require("mongoose");
 
-const ProductoraSchema= Schema({
+const ProductoraSchema= new Schema({
 	NombresPro:{type: String, required: true},
 	Estado:{type: String, required: true, enum:["Activo","Inactivo"]},
 	FechaCre:{type: Date, required:true},
@@ -14,4 +14,4 @@ ProductoraSchema.pre('save', (next) =>{
   next();
 });
 
-module.export= model("mdlProductora", ProductoraSchema);
+module.exports= model("mdlProductora", ProductoraSchema);

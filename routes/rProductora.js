@@ -41,7 +41,7 @@ router.get("/:id", async(req, res, next)=>
 });
 
 // Crear un nuevo 
-router.post('/add', async (req, res) => 
+router.put('/add', async (req, res) => 
 {
   try
   {

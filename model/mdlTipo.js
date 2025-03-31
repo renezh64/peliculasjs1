@@ -1,10 +1,10 @@
 const {Schema, model} = require("mongoose");
 
 const TipoSchema = new Schema({
-  Nombre: {type: String, required: true,},
+  Nombre: {type: String, required: true},
   FechaCre: { type: Date, default: Date.now },
   FechaAct: { type: Date, default: Date.now },
-  Descripcion: { type: String, required: true },
+  Descripcion: { type: String, required: true }
 });
 
 TipoSchema.pre('save', (next) =>{

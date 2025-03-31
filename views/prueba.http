@@ -1,0 +1,11 @@
+PUT  http://localhost:3001/productora/add
+Content-Type: application/json
+
+{
+  "NombresPro": "Produciones RCNJEs",
+  "Estado": "Inactivo",
+  "FechaCre":"2025-03-20",
+  "FechaAct": "2025-03-20",
+  "Eslogan":"hoy aqui mañana desde cualquier lugar del mundo",
+  "Descripcion": "Julito no me "
+}

@@ -12,7 +12,7 @@ const MediaSchema= Schema({
 	GeneroPrin:{type: Schema.Types.ObjectId,ref:"mdlGenero", required: false},	
 	DirectorPrin:{type: Schema.Types.ObjectId,ref:"mdlDirector", required: false},
 	Productora:{type: Schema.Types.ObjectId,ref:"mdlProductora", required: false},
-	Tipo:{type: Schema.Types.ObjectId,ref:"mdlTipo", required: false},	
+	Tipo:{type: Schema.Types.ObjectId,ref:"mdlTipo", required: false}	
 });
 //modificar para relacionar con otras tablas.
 module.export= model("mdlMedia", MediaSchema);
