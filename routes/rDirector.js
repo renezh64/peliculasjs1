@@ -5,44 +5,44 @@ const {getConnection , closeConn} =require("../bd/connect-mongo.js");
 
 /* GET users listing. */
 router.get('/', async(req, res, next)=> {
-	try
-	{
+  try
+  {
     await getConnection();
-		const mDirector = await Director.find();
-		res.json(mDirector);
+    const mDirector = await Director.find();
+    res.json(mDirector);
     closeConn();
-	}
-	catch(error)
-	{
-		res.status(500).json({ error: error.message });		
+  }
+  catch(error)
+  {
+    res.status(500).json({ error: error.message });   
     closeConn();
-	}
+  }
   //res.send('respond with a resource++++');
 });
 
 //obtenemos uno
 router.get("/:id", async(req, res, next)=> 
 {
-	try
-	{
+  try
+  {
     await getConnection();
-		const miDirector = await Director.findById(req.params.id);
-		if(!miDirector)
-		{return res.status(404).json({ error: 'Director no encontrado' });}
-		res.json(miDirector);
+    const miDirector = await Director.findById(req.params.id);
+    if(!miDirector)
+    {return res.status(404).json({ error: 'Director no encontrado' });}
+    res.json(miDirector);
     closeConn();
-	}
-	catch (error)
-	{
-		res.status(500).json({ error: error.message });
+  }
+  catch (error) 
+  {
+    res.status(500).json({ error: error.message });
     closeConn();
-	}
-	//next();
+  }
+  //next();
   //res.send('respond with a resourceaqui viene la consulta y listamos uno');
 });
 
 // Crear un nuevo 
-router.post('/add', async (req, res) => 
+router.put('/add', async (req, res) => 
 {
   try
   {
@@ -60,14 +60,14 @@ router.post('/add', async (req, res) =>
 });
 
 //Actualiza
-router.put('/items/:id', async (req, res) => {
+router.post('/:id', async (req, res) => {
   try 
   {
     await getConnection();
     const miDirector = await Director.findByIdAndUpdate(req.params.id, req.body, {new: true, runValidators: true, });
     if(!miDirector)
-	{ return res.status(404).json({ error: 'Director no encontrado' }); }
-	res.json(miDirector);
+  { return res.status(404).json({ error: 'Director no encontrado' }); }
+  res.json(miDirector);
   closeConn();
   }
   catch(error)
@@ -84,7 +84,7 @@ router.delete('/:id', async (req, res) => {
     await getConnection();
     const miDirector= await Director.findByIdAndDelete(req.params.id);
     if(!miDirector)
-	{	return res.status(404).json({ error: 'Directos no encontrado' });}
+  { return res.status(404).json({ error: 'Directos no encontrado' });}
     res.json({ message: 'Director borrado exitosamente' });
     closeConn();
   }

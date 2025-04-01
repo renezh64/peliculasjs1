@@ -9,6 +9,8 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var tipoRauter= require("./routes/rTipo.js");
 var productoraRouter= require("./routes/rProductora.js");
+var directorRouter= require("./routes/rDirector.js");
+var generoRouter= require("./routes/rGenero.js");
 
 var app = express();
 
@@ -40,6 +42,8 @@ app.use('/users', usersRouter);
 //agregados
 app.use("/tipo", tipoRauter);
 app.use("/productora", productoraRouter);
+app.use("/director",directorRouter);
+app.use("/genero",generoRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -1,4 +1,4 @@
-import {Schema, model} from "mongoose";
+const {Schema, model} =require("mongoose");
 
 const GeneroSchema= Schema({
 	Nombre:{type: String, required: true},
@@ -8,4 +8,4 @@ const GeneroSchema= Schema({
 	Descripcion:{type: String, required: false}
 });
 
-module.export= model("mdlGenero",GeneroSchema);
+module.exports= model("mdlGenero",GeneroSchema);

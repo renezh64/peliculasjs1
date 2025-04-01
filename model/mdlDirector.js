@@ -1,4 +1,4 @@
-import {Schema, model} from "mongoose";
+const {Schema, model} = require("mongoose");
 
 const DirectorSchema= Schema({
 	Nombres:{type: String, required: true},
@@ -12,4 +12,4 @@ DirectorSchema.pre('save', (next) =>{
   next();
 });
 
-module.export= model("mdlDirector",DirectorSchema);
+module.exports= model("mdlDirector",DirectorSchema);

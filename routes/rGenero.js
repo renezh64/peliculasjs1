@@ -5,39 +5,39 @@ const {getConnection , closeConn} =require("../bd/connect-mongo.js");
 
 /* GET users listing. */
 router.get('/', async(req, res, next)=> {
-	try
-	{
+  try
+  {
     await getConnection(); 
-		const mGenero = await Genero.find();
-		res.json(mGenero);
+    const mGenero = await Genero.find();
+    res.json(mGenero);
     closeConn();
-	}
-	catch(error)
-	{
-		res.status(500).json({ error: error.message+" rene" });	
-    closeConn();	
-	}
+  }
+  catch(error)
+  {
+    res.status(500).json({ error: error.message+" rene" }); 
+    closeConn();  
+  }
   //res.send('respond with a resource++++');
 });
 
 //obtenemos uno
 router.get("/:id", async(req, res, next)=> 
 {
-	try
-	{
+  try
+  {
     await getConnection(); 
-		const miGenero = await Genero.findById(req.params.id);
-		if(!miGenero)
-		{return res.status(404).json({ error: 'Genero no encontrado' });}
-		res.json(miGenero);
+    const miGenero = await Genero.findById(req.params.id);
+    if(!miGenero)
+    {return res.status(404).json({ error: 'Genero no encontrado' });}
+    res.json(miGenero);
     closeConn();
-	}
-	catch (error)
-	{
-		res.status(500).json({ error: error.message });
+  }
+  catch (error)
+  {
+    res.status(500).json({ error: error.message });
     closeConn();
-	}
-	//next();
+  }
+  //next();
   //res.send('respond with a resourceaqui viene la consulta y listamos uno');
 });
 
@@ -60,14 +60,14 @@ router.post('/add', async (req, res) =>
 });
 
 //Actualiza
-router.put('/items/:id', async (req, res) => {
+router.post('/:id', async (req, res) => {
   try 
   {
     await getConnection(); 
     const miGenero = await Genero.findByIdAndUpdate(req.params.id, req.body, {new: true, runValidators: true, });
     if(!miGenero)
-	{ return res.status(404).json({ error: 'Genero no encontrado' }); }
-	res.json(miDirector);
+  { return res.status(404).json({ error: 'Genero no encontrado' }); }
+  res.json(miGenero);
   closeConn();
   }
   catch(error)
@@ -82,10 +82,10 @@ router.delete('/:id', async (req, res) => {
   try
   {
     await getConnection(); 
-    const miDirector= await Director.findByIdAndDelete(req.params.id);
-    if(!miDirector)
-	{	return res.status(404).json({ error: 'Directos no encontrado' });}
-    res.json({ message: 'Director borrado exitosamente' });
+    const miGenero= await Genero.findByIdAndDelete(req.params.id);
+    if(!miGenero)
+  { return res.status(404).json({ error: 'Genero no encontrado' });}
+    res.json({ message: 'Genero borrado exitosamente' });
     closeConn();
   }
   catch(error)
