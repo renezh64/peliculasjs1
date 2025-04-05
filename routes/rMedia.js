@@ -12,7 +12,7 @@ router.get('/', async(req, res, next)=> {
 	{
 		await getConnection(); 
 		const mMedia = await Media.find();
-		res.json(mTipo);
+		res.json(mMedia);
 		closeConn();
 	}
 	catch(error)
@@ -42,7 +42,7 @@ router.get("/:id", async(req, res, next)=>
 	}	
 });
 
-// Crear un nuevo tipo
+// Crear un nuevo tipo aqui voy asegurandome que o hallan datos vacios
 router.put('/add', async (req, res) => 
 {
   try
