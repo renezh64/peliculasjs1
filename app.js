@@ -17,7 +17,8 @@ var mediaRouter= require("./routes/rMedia.js");
 var app = express();
 
 //const port=3001;
-const port = process.env.PORT || 3001;
+const port=10000;
+//const port = process.env.PORT || 3001;
 
 const corsOptions = {
     origin: "*", // Allow only requests from this origin
@@ -29,6 +30,7 @@ app.use(cors(corsOptions));
 
 app.listen(port,()=>{
 	console.log("correindo en http:localhost:"+port);
+	
 });
 
 // view engine setup
