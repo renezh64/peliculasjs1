@@ -16,7 +16,9 @@ var mediaRouter= require("./routes/rMedia.js");
 
 var app = express();
 
-const port=3001;
+//const port=3001;
+const port = process.env.PORT || 3001;
+
 const corsOptions = {
     origin: "*", // Allow only requests from this origin
 	credentials:false,
